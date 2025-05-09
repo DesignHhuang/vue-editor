@@ -15,21 +15,6 @@
       hide-text
     />
     <t-dropdown-menu>
-      <t-dropdown-item
-        v-if="
-          options.ai?.assistant?.enabled &&
-          (editor?.isActive('paragraph') || editor?.isActive('heading')) &&
-          editor?.state?.selection?.$from?.nodeAfter
-        "
-        divider
-      >
-        <menus-button
-          ico="assistant"
-          :text="t('assistant.text')"
-          :tooltip="false"
-          @menu-click="openAssistant"
-        />
-      </t-dropdown-item>
       <t-dropdown-item class="umo-block-menu-group-name" disabled>
         {{ t('blockMenu.insert') }}
       </t-dropdown-item>
@@ -82,27 +67,6 @@
       </t-dropdown-item>
       <t-dropdown-item v-if="!disableItem('seal')">
         <menus-toolbar-tools-seal :huge="false" :tooltip="false" />
-      </t-dropdown-item>
-      <t-dropdown-item v-if="options.templates.length > 0">
-        <menus-button
-          ico="template"
-          :text="t('blockMenu.template')"
-          :tooltip="false"
-        />
-        <t-dropdown-menu
-          overlay-class-name="umo-block-menu-dropdown"
-          placement="right"
-        >
-          <t-dropdown-item
-            v-for="item in options.templates"
-            :key="item.value"
-            :value="item.value"
-            :divider="item.divider"
-            @click="setTemplate(item)"
-          >
-            <div class="umo-dropdown-item-label">{{ item.title }}</div>
-          </t-dropdown-item>
-        </t-dropdown-menu>
       </t-dropdown-item>
     </t-dropdown-menu>
   </t-dropdown>

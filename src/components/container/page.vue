@@ -24,16 +24,7 @@
           }"
         >
           <div class="umo-page-node-header" contenteditable="false">
-            <div
-              class="umo-page-corner corner-tl"
-              style="width: var(--umo-page-margin-left)"
-            ></div>
-
             <div class="umo-page-node-header-content"></div>
-            <div
-              class="umo-page-corner corner-tr"
-              style="width: var(--umo-page-margin-right)"
-            ></div>
           </div>
           <div class="umo-page-node-content">
             <editor>
@@ -43,15 +34,7 @@
             </editor>
           </div>
           <div class="umo-page-node-footer" contenteditable="false">
-            <div
-              class="umo-page-corner corner-bl"
-              style="width: var(--umo-page-margin-left)"
-            ></div>
             <div class="umo-page-node-footer-content"></div>
-            <div
-              class="umo-page-corner corner-br"
-              style="width: var(--umo-page-margin-right)"
-            ></div>
           </div>
         </div>
       </div>
@@ -227,53 +210,6 @@ watch(
 .umo-page-node-footer {
   display: flex;
   justify-content: space-between;
-}
-
-.umo-page-corner {
-  box-sizing: border-box;
-  position: relative;
-  z-index: 10;
-
-  @media print {
-    opacity: 0;
-  }
-
-  &::after {
-    position: absolute;
-    content: '';
-    display: block;
-    height: 1cm;
-    width: 1cm;
-    border: solid 1px rgba(0, 0, 0, 0.08);
-  }
-
-  &.corner-tl::after {
-    border-top: none;
-    border-left: none;
-    bottom: 0;
-    right: 0;
-  }
-
-  &.corner-tr::after {
-    border-top: none;
-    border-right: none;
-    bottom: 0;
-    left: 0;
-  }
-
-  &.corner-bl::after {
-    border-bottom: none;
-    border-left: none;
-    top: 0;
-    right: 0;
-  }
-
-  &.corner-br::after {
-    border-bottom: none;
-    border-right: none;
-    top: 0;
-    left: 0;
-  }
 }
 
 .umo-page-node-header-content,

@@ -52,10 +52,10 @@ const defaultOptions: UmoEditorOptions = {
   },
   page: {
     defaultMargin: {
-      left: 3.18,
-      right: 3.18,
-      top: 2.54,
-      bottom: 2.54,
+      left: 2,
+      right: 2,
+      top: 0.5,
+      bottom: 0.5,
     },
     defaultOrientation: 'portrait',
     defaultBackground: '#fff',
