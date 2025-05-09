@@ -1,8 +1,6 @@
 <template>
   <template
     v-if="
-      editor?.isActive('toc') ||
-      editor?.isActive('pageBreak') ||
       editor?.isActive('horizontalRule') ||
       editor?.isActive('codeBlock') ||
       editor?.getAttributes('image').error
@@ -60,8 +58,7 @@
     v-else-if="
       editor?.isActive('video') ||
       editor?.isActive('audio') ||
-      editor?.isActive('file') ||
-      editor?.isActive('iframe')
+      editor?.isActive('file')
     "
   >
     <menus-toolbar-base-align-left />
@@ -104,13 +101,6 @@
     <div class="umo-bubble-menu-divider"></div>
     <menus-bubble-tag-delete />
   </template>
-  <template v-else-if="editor?.isActive('echarts')">
-    <menus-toolbar-base-align-left />
-    <menus-toolbar-base-align-center />
-    <menus-toolbar-base-align-right />
-    <div class="umo-bubble-menu-divider"></div>
-    <menus-bubble-node-delete />
-  </template>
   <template v-else>
     <menus-toolbar-base-bold />
     <menus-toolbar-base-italic />
@@ -121,16 +111,8 @@
     <menus-toolbar-insert-link v-if="!disableItem('link')" />
     <div class="umo-bubble-menu-divider"></div>
     <menus-toolbar-base-color />
-    <template v-if="!editor?.isActive('textBox')">
-      <menus-toolbar-base-background-color />
-      <menus-toolbar-base-highlight v-if="!disableItem('highlight')" />
-    </template>
-    <template v-else>
-      <menus-bubble-text-box-border />
-      <menus-bubble-text-box-background />
-      <div class="umo-bubble-menu-divider"></div>
-      <menus-bubble-node-delete />
-    </template>
+    <menus-toolbar-base-background-color />
+    <menus-toolbar-base-highlight v-if="!disableItem('highlight')" />
     <div class="umo-bubble-menu-divider"></div>
     <slot name="bubble_menu" />
   </template>
