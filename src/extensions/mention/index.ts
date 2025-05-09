@@ -23,7 +23,7 @@ const CustomMention = Mention.extend({
     return {
       insertMention:
         () =>
-        ({ commands }) => {
+        ({ commands }: any) => {
           return commands.insertContent(
             ` ${this.options?.suggestion?.char ?? '@'}`,
           )
