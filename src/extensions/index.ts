@@ -4,7 +4,6 @@ import CharacterCount from '@tiptap/extension-character-count'
 import Color from '@tiptap/extension-color'
 import Dropcursor from '@tiptap/extension-dropcursor'
 import Focus from '@tiptap/extension-focus'
-import FontFamily from '@tiptap/extension-font-family'
 import Highlight from '@tiptap/extension-highlight'
 import Placeholder from '@tiptap/extension-placeholder'
 import Subscript from '@tiptap/extension-subscript'
@@ -17,7 +16,6 @@ import Typography from '@tiptap/extension-typography'
 import Underline from '@tiptap/extension-underline'
 import StarterKit from '@tiptap/starter-kit'
 import type { Editor, Extension } from '@tiptap/vue-3'
-import { ColumnsExtension as Columns } from '@tiptap-extend/columns'
 import NodeRange from '@tiptap-pro/extension-node-range'
 import { getHierarchicalIndexes } from '@tiptap-pro/extension-table-of-contents'
 import { TableOfContents } from '@tiptap-pro/extension-table-of-contents'
@@ -25,8 +23,6 @@ import { TableOfContents } from '@tiptap-pro/extension-table-of-contents'
 import type { UmoEditorOptions } from '@/types'
 import { shortId } from '@/utils/short-id'
 
-import Audio from './audio'
-import BreakMarks from './break-marks'
 import BulletList from './bullet-list'
 import Callout from './callout'
 import CodeBlock from './code-block'
@@ -60,7 +56,7 @@ export const getDefaultExtensions = ({
   options: { value: UmoEditorOptions }
   uploadFileMap: { value: any }
 }) => {
-  const { dicts, page, document: doc, users, file } = options.value
+  const { document: doc, users, file } = options.value
 
   const extensions = [
     StarterKit.configure({
@@ -79,7 +75,6 @@ export const getDefaultExtensions = ({
       mode: 'all',
     }),
     FormatPainter,
-    FontFamily,
     Bold.extend({
       renderHTML: ({ HTMLAttributes }: any) => ['b', HTMLAttributes, 0],
     }),
@@ -109,11 +104,9 @@ export const getDefaultExtensions = ({
     Link,
     Image,
     Video,
-    Audio,
     File,
     CodeBlock,
     hr,
-    Columns,
     Tag,
     Callout,
 
@@ -122,11 +115,6 @@ export const getDefaultExtensions = ({
     TableRow,
     TableHeader,
     TableCell,
-
-    // 页面
-    BreakMarks.configure({
-      visible: page.showBreakMarks,
-    }),
 
     // 其他
     Mention.configure({

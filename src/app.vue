@@ -124,13 +124,16 @@ body {
   margin: 20px;
   display: flex;
   height: calc(100vh - 40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .box {
   border: solid 1px #ddd;
   box-sizing: border-box;
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 900px;
+  height: 600px;
 }
 
 html,

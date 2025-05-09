@@ -54,27 +54,13 @@
     />
     <menus-bubble-node-delete />
   </template>
-  <template
-    v-else-if="
-      editor?.isActive('video') ||
-      editor?.isActive('audio') ||
-      editor?.isActive('file')
-    "
-  >
+  <template v-else-if="editor?.isActive('video') || editor?.isActive('file')">
     <menus-toolbar-base-align-left />
     <menus-toolbar-base-align-center />
     <menus-toolbar-base-align-right />
     <div class="umo-bubble-menu-divider"></div>
-    <menus-bubble-file-download
-      v-if="
-        editor?.isActive('file') ||
-        editor?.isActive('video') ||
-        editor?.isActive('audio')
-      "
-    />
-    <menus-bubble-node-tofile
-      v-if="editor?.isActive('video') || editor?.isActive('audio')"
-    />
+    <menus-bubble-file-download v-if="editor?.isActive('file')" />
+    <menus-bubble-node-tofile v-if="editor?.isActive('video')" />
     <menus-bubble-node-delete />
   </template>
   <template v-else-if="editor?.isActive('table')">

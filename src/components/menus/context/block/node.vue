@@ -32,9 +32,6 @@
       <t-dropdown-item v-if="!disableItem('video')">
         <menus-toolbar-insert-video :huge="false" :tooltip="false" />
       </t-dropdown-item>
-      <t-dropdown-item v-if="!disableItem('audio')">
-        <menus-toolbar-insert-audio :huge="false" :tooltip="false" />
-      </t-dropdown-item>
       <t-dropdown-item v-if="!disableItem('file')">
         <menus-toolbar-insert-file :huge="false" :tooltip="false" />
       </t-dropdown-item>

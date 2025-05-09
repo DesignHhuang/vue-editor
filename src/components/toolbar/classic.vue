@@ -66,18 +66,12 @@
           <menus-toolbar-insert-link v-if="!disableItem('link')" />
           <menus-toolbar-insert-image v-if="!disableItem('image')" />
           <menus-toolbar-insert-video v-if="!disableItem('video')" />
-          <menus-toolbar-insert-audio v-if="!disableItem('audio')" />
           <menus-toolbar-insert-file v-if="!disableItem('file')" />
           <menus-toolbar-insert-code-block v-if="!disableItem('code-block')" />
-          <menus-toolbar-insert-symbol v-if="!disableItem('symbol')" />
           <menus-toolbar-insert-emoji v-if="!disableItem('emoji')" />
-          <menus-toolbar-insert-columns v-if="!disableItem('columns')" />
           <menus-toolbar-insert-tag v-if="!disableItem('tag')" />
           <menus-toolbar-insert-callout v-if="!disableItem('callout')" />
           <menus-toolbar-insert-mention v-if="!disableItem('mention')" />
-        </div>
-        <div class="umo-virtual-group">
-          <menus-toolbar-insert-hard-break v-if="!disableItem('hard-break')" />
           <menus-toolbar-insert-hr v-if="!disableItem('hr')" />
         </div>
         <div class="virtual-group is-slot">

@@ -9,7 +9,6 @@ import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import tsConfigPaths from 'vite-tsconfig-paths'
 
 import pkg from './package.json'
-import copyright from './src/utils/copyright'
 
 // Plugin configurations
 const vuePlugins = {
@@ -51,7 +50,6 @@ const buildConfig = {
   rollupOptions: {
     output: [
       {
-        banner: copyright,
         intro: `import './style.css'`,
         format: 'es' as const,
       },

@@ -158,7 +158,7 @@ onMounted(async () => {
 })
 
 const supportPreview = $computed(() => {
-  const supportNodes = ['image', 'video', 'audio']
+  const supportNodes = ['image', 'video']
   return supportNodes.includes(node.attrs.previewType) || previewURL !== null
 })
 const togglePreview = () => {
