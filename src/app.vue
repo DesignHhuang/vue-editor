@@ -3,9 +3,6 @@
     <div class="box">
       <umo-editor ref="editorRef" v-bind="options" />
     </div>
-    <!-- <div class="box">
-      <umo-editor editor-key="testaaa" :toolbar="{ defaultMode: 'classic' }" />
-    </div> -->
   </div>
 </template>
 
@@ -81,6 +78,7 @@ const options = $ref({
     { id: 'Sherman Xu', label: 'xuzhenjun130' },
     { id: 'testuser', label: '测试用户' },
   ],
+
   async onSave(content: string, page: number, document: { content: string }) {
     localStorage.setItem('document.content', document.content)
     return new Promise((resolve, reject) => {
@@ -95,6 +93,7 @@ const options = $ref({
       }, 2000)
     })
   },
+
   async onFileUpload(file: File & { url?: string }) {
     if (!file) {
       throw new Error('没有找到要上传的文件')
