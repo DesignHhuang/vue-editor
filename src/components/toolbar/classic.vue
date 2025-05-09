@@ -37,9 +37,6 @@
           <menus-toolbar-base-bold />
           <menus-toolbar-base-italic />
           <menus-toolbar-base-underline />
-          <menus-toolbar-base-strike />
-          <menus-toolbar-base-subscript />
-          <menus-toolbar-base-superscript />
           <menus-toolbar-base-color />
           <menus-toolbar-base-background-color />
           <menus-toolbar-base-highlight v-if="!disableItem('highlight')" />
