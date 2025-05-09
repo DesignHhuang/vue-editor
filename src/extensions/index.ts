@@ -18,7 +18,6 @@ import Underline from '@tiptap/extension-underline'
 import StarterKit from '@tiptap/starter-kit'
 import type { Editor, Extension } from '@tiptap/vue-3'
 import { ColumnsExtension as Columns } from '@tiptap-extend/columns'
-import Mathematics from '@tiptap-pro/extension-mathematics'
 import NodeRange from '@tiptap-pro/extension-node-range'
 import { getHierarchicalIndexes } from '@tiptap-pro/extension-table-of-contents'
 import { TableOfContents } from '@tiptap-pro/extension-table-of-contents'
@@ -43,7 +42,6 @@ import Mention from './mention'
 import getUsersSuggestion from './mention/suggestion'
 import NodeAlign from './node-align'
 import OrderedList from './ordered-list'
-import PageBreak from './page-break'
 import Selection from './selection'
 import Table from './table'
 import TableCell from './table/cell'
@@ -115,7 +113,6 @@ export const getDefaultExtensions = ({
     File,
     CodeBlock,
     hr,
-    Mathematics,
     Columns,
     Tag,
     Callout,
@@ -130,7 +127,6 @@ export const getDefaultExtensions = ({
     BreakMarks.configure({
       visible: page.showBreakMarks,
     }),
-    PageBreak,
 
     // 其他
     Mention.configure({
@@ -200,7 +196,7 @@ export const inputAndPasteRules = (options: any) => {
     !options.value.document?.enableMarkdown ||
     !$document.value?.enableMarkdown
   ) {
-    enableRules = [Mathematics, Typography, Image as Extension]
+    enableRules = [Typography, Image as Extension]
   }
   return enableRules
 }

@@ -1,9 +1,5 @@
 <template>
   <div class="umo-page-container">
-    <container-toc
-      v-if="pageOptions.showToc"
-      @close="pageOptions.showToc = false"
-    />
     <div class="umo-zoomable-container umo-scrollbar">
       <div
         class="umo-zoomable-content"
@@ -76,8 +72,6 @@
       size="small"
       :offset="['25px', '30px']"
     />
-    <container-search-replace />
-    <container-print />
   </div>
 </template>
 
