@@ -141,17 +141,10 @@
         <div class="umo-virtual-group">
           <menus-toolbar-page-margin />
           <menus-toolbar-page-size />
-          <menus-toolbar-page-orientation />
         </div>
         <div class="umo-virtual-group">
-          <menus-toolbar-page-break />
-          <menus-toolbar-page-break-marks />
           <menus-toolbar-page-line-number />
-          <menus-toolbar-page-watermark v-if="!disableItem('watermark')" />
           <menus-toolbar-page-background v-if="!disableItem('background')" />
-        </div>
-        <div class="umo-virtual-group">
-          <menus-toolbar-page-preview v-if="!disableItem('preview')" />
         </div>
         <div class="virtual-group is-slot">
           <slot name="toolbar_page" toolbar-mode="classic" />

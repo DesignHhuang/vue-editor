@@ -8,11 +8,8 @@
           height: pageZoomHeight,
         }"
       >
-        <t-watermark
+        <div
           class="umo-page-content"
-          :alpha="pageOptions.watermark.alpha"
-          v-bind="watermarkOptions"
-          :watermark-content="pageOptions.watermark"
           :style="{
             '--umo-page-background': pageOptions.background,
             '--umo-page-margin-top': (pageOptions.margin?.top ?? '0') + 'cm',
@@ -24,7 +21,6 @@
             '--umo-page-width': pageSize.width + 'cm',
             '--umo-page-height': pageSize.height + 'cm',
             width: pageSize.width + 'cm',
-            transform: `scale(${pageOptions.zoomLevel ? pageOptions.zoomLevel / 100 : 1})`,
           }"
         >
           <div class="umo-page-node-header" contenteditable="false">
@@ -57,7 +53,7 @@
               style="width: var(--umo-page-margin-right)"
             ></div>
           </div>
-        </t-watermark>
+        </div>
       </div>
     </div>
     <t-image-viewer

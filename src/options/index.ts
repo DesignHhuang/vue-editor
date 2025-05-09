@@ -59,7 +59,7 @@ const defaultOptions: UmoEditorOptions = {
     },
     defaultOrientation: 'portrait',
     defaultBackground: '#fff',
-    showBreakMarks: true,
+    showBreakMarks: false,
     showLineNumber: false,
     showBookmark: false,
     showToc: false,
