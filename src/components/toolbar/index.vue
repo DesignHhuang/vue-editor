@@ -14,106 +14,7 @@
         <slot :name="`toolbar_${item}`" v-bind="props" />
       </template>
     </toolbar-classic>
-    <div class="umo-toolbar-actions" :class="$toolbar.mode">
-      <t-popup
-        v-if="options.document.readOnly !== true"
-        v-model="statusPopup"
-        :attach="container"
-        trigger="click"
-        placement="bottom-right"
-        @visible-change="(visible: boolean) => (statusPopup = visible)"
-      >
-        <t-button
-          class="umo-toolbar-actions-button"
-          variant="text"
-          size="small"
-          :class="{ active: statusPopup }"
-        >
-          <span class="umo-status">
-            <span
-              class="umo-status-online"
-              :class="{ offline: !online }"
-            ></span>
-            <span class="umo-status-saved button-text">
-              <span
-                v-if="savedAt"
-                v-text="t('save.savedAtText', { time: timeAgo(savedAt) })"
-              ></span>
-              <span v-else class="unsaved" v-text="t('save.unsaved')"></span>
-            </span>
-          </span>
-        </t-button>
-        <template #content>
-          <div class="umo-document-status-container umo-status">
-            <div>
-              {{ t('save.network') }}
-              {{ online ? t('save.online') : t('save.offline') }}
-            </div>
-            <div>
-              {{ t('save.savedAt') }}
-              <span
-                v-if="savedAt"
-                v-text="t('save.savedAtText', { time: timeAgo(savedAt) })"
-              ></span>
-              <span v-else v-text="t('save.unsaved')"></span>
-            </div>
-            <div class="umo-document-button-container">
-              <t-button
-                size="small"
-                @click="saveContent"
-                v-text="t('save.text')"
-              ></t-button>
-              <t-button
-                size="small"
-                variant="outline"
-                @click="setContentFromCache"
-                v-text="t('save.cache.text')"
-              >
-              </t-button>
-            </div>
-          </div>
-        </template>
-      </t-popup>
-      <t-dropdown
-        trigger="click"
-        size="small"
-        placement="bottom-right"
-        :popup-props="{
-          destroyOnClose: true,
-          attach: container,
-        }"
-        @click="toggleToolbarMode"
-      >
-        <t-button
-          class="umo-toolbar-actions-button"
-          variant="text"
-          size="small"
-        >
-          <icon name="expand-down" />
-          <span class="umo-button-text">{{ t('toolbar.toggle') }}</span>
-        </t-button>
-        <template #dropdown>
-          <t-dropdown-menu
-            v-for="item in editorModeOptions"
-            :key="item.value as string"
-            :content="item.label"
-            :value="item.value"
-            :divider="item.divider"
-            :active="item.value === $toolbar.mode"
-          >
-            <template #prefixIcon>
-              <icon :name="item.prefixIcon" />
-            </template>
-          </t-dropdown-menu>
-        </template>
-      </t-dropdown>
-    </div>
   </div>
-  <tooltip v-else :content="t('toolbar.show')" placement="bottom-right">
-    <div class="umo-show-toolbar" @click="$toolbar.show = true">
-      <icon name="arrow-down" />
-    </div>
-  </tooltip>
 </template>
 
 <script setup lang="ts">
@@ -161,51 +62,6 @@ watch(
     }
   },
 )
-
-// 切换编辑器模式
-const editorModeOptions = [
-  {
-    label: t('toolbar.classic'),
-    value: 'classic',
-    prefixIcon: 'toolbar-classic',
-  },
-]
-
-const toggleToolbarMode = ({ value }: DropdownOption) => {
-  if (value === 'hideToolbar') {
-    $toolbar.value.show = false
-  } else {
-    $toolbar.value.show = true
-    $toolbar.value.mode = value as string
-  }
-}
-
-// 保存文档
-const saveContentMethod = inject('saveContent') as () => void
-const saveContent = () => {
-  saveContentMethod()
-  statusPopup = false
-}
-
-// 从缓存中恢复文档
-const setContentFromCache = () => {
-  const document = useState('document', options)
-  const { content } = document.value
-  if (!content || content === '' || content === '<p></p>') {
-    const dialog = useAlert({
-      attach: container,
-      theme: 'info',
-      header: t('save.cache.error.title'),
-      body: t('save.cache.error.message'),
-      onConfirm() {
-        dialog.destroy()
-      },
-    })
-    return
-  }
-  statusPopup = false
-  editor.value?.chain().setContent(content, true).focus().run()
-}
 </script>
 
 <style lang="less" scoped>
@@ -215,40 +71,6 @@ const setContentFromCache = () => {
   user-select: none;
   border-bottom: solid 1px var(--umo-border-color);
   position: relative;
-}
-.umo-toolbar-actions {
-  padding: 6px 10px;
-  display: flex;
-  align-items: center;
-  &.ribbon {
-    position: absolute;
-    right: 0;
-    top: 1px;
-  }
-  &-button {
-    &.active {
-      background-color: var(--umo-button-hover-background);
-    }
-    &:not(:last-child) {
-      margin-right: 3px;
-    }
-    :deep(.umo-button__text) {
-      display: flex;
-      align-items: center;
-      .umo-icon {
-        margin-right: 3px;
-      }
-    }
-  }
-  @media screen and (max-width: 640px) {
-    padding-left: 0;
-    .umo-status-online {
-      margin-right: 0;
-    }
-    .umo-button-text {
-      display: none;
-    }
-  }
 }
 .umo-show-toolbar {
   cursor: pointer;

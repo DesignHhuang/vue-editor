@@ -75,7 +75,6 @@ import type {
   SupportedLocale,
   WatermarkOption,
 } from '@/types'
-import { consoleCopyright } from '@/utils/copyright'
 import { getOpitons } from '@/utils/options'
 import { shortId } from '@/utils/short-id'
 
@@ -208,7 +207,6 @@ watch(
 // Lifecycle Hooks
 onMounted(() => {
   setTheme(options.value.theme)
-  setTimeout(consoleCopyright)
 })
 onBeforeUnmount(() => {
   clearAutoSaveInterval()
