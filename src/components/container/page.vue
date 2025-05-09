@@ -4,7 +4,6 @@
       <div
         class="umo-zoomable-content"
         :style="{
-          width: pageZoomWidth,
           height: pageZoomHeight,
         }"
       >
@@ -20,7 +19,6 @@
               (pageOptions.margin?.right ?? '0') + 'cm',
             '--umo-page-width': pageSize.width + 'cm',
             '--umo-page-height': pageSize.height + 'cm',
-            width: pageSize.width + 'cm',
           }"
         >
           <div class="umo-page-node-header" contenteditable="false">
@@ -68,10 +66,6 @@ const pageSize = $computed(() => {
     width: pageOptions.value.orientation === 'portrait' ? width : height,
     height: pageOptions.value.orientation === 'portrait' ? height : width,
   }
-})
-// 页面缩放后的大小
-const pageZoomWidth = $computed(() => {
-  return `calc(${pageSize.width}cm * ${pageOptions.value.zoomLevel ? pageOptions.value.zoomLevel / 100 : 1})`
 })
 
 // 页面内容变化后更新页面高度
@@ -170,7 +164,7 @@ watch(
 
 .umo-zoomable-container {
   flex: 1;
-  padding: 20px 50px;
+  padding: 0;
   scroll-behavior: smooth;
   .umo-zoomable-content {
     margin: 0 auto;
@@ -189,6 +183,7 @@ watch(
       overflow: visible !important;
       display: flex;
       flex-direction: column;
+      width: 100%;
       [contenteditable] {
         outline: none;
       }

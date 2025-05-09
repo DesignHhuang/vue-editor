@@ -132,7 +132,7 @@ body {
   border: solid 1px #ddd;
   box-sizing: border-box;
   position: relative;
-  width: 900px;
+  width: 800px;
   height: 600px;
 }
 
