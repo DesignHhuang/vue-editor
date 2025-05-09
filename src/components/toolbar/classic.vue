@@ -34,8 +34,6 @@
         </div>
         <div class="umo-virtual-group">
           <menus-toolbar-base-heading />
-          <menus-toolbar-base-font-family borderless />
-          <menus-toolbar-base-font-size borderless />
           <menus-toolbar-base-bold />
           <menus-toolbar-base-italic />
           <menus-toolbar-base-underline />
@@ -52,22 +50,12 @@
           />
           <menus-toolbar-base-bullet-list v-if="!disableItem('bullet-list')" />
           <menus-toolbar-base-task-list v-if="!disableItem('task-list')" />
-          <menus-toolbar-base-indent />
-          <menus-toolbar-base-outdent />
-          <menus-toolbar-base-line-height v-if="!disableItem('line-height')" />
-          <menus-toolbar-base-margin v-if="!disableItem('margin')" />
           <menus-toolbar-base-align-dropdown />
           <menus-toolbar-base-quote v-if="!disableItem('quote')" />
           <menus-toolbar-base-code v-if="!disableItem('code')" />
-          <menus-toolbar-base-select-all v-if="!disableItem('select-all')" />
         </div>
         <div class="umo-virtual-group">
-          <menus-toolbar-base-import-word />
-          <menus-toolbar-base-markdown v-if="!disableItem('markdown')" />
-          <menus-toolbar-base-search-replace />
-        </div>
-        <div class="umo-virtual-group">
-          <menus-toolbar-base-print v-if="!disableItem('print')" />
+          <!-- <menus-toolbar-base-markdown v-if="!disableItem('markdown')" /> -->
         </div>
         <div class="virtual-group is-slot">
           <slot name="toolbar_base" toolbar-mode="classic" />
@@ -82,26 +70,16 @@
           <menus-toolbar-insert-file v-if="!disableItem('file')" />
           <menus-toolbar-insert-code-block v-if="!disableItem('code-block')" />
           <menus-toolbar-insert-symbol v-if="!disableItem('symbol')" />
-          <menus-toolbar-insert-chinese-date
-            v-if="!disableItem('chineseDate')"
-          />
           <menus-toolbar-insert-emoji v-if="!disableItem('emoji')" />
           <menus-toolbar-insert-math v-if="!disableItem('math')" />
           <menus-toolbar-insert-columns v-if="!disableItem('columns')" />
           <menus-toolbar-insert-tag v-if="!disableItem('tag')" />
           <menus-toolbar-insert-callout v-if="!disableItem('callout')" />
           <menus-toolbar-insert-mention v-if="!disableItem('mention')" />
-          <menus-toolbar-insert-bookmark v-if="!disableItem('bookmark')" />
         </div>
         <div class="umo-virtual-group">
           <menus-toolbar-insert-hard-break v-if="!disableItem('hard-break')" />
           <menus-toolbar-insert-hr v-if="!disableItem('hr')" />
-          <menus-toolbar-insert-toc v-if="!disableItem('toc')" />
-          <menus-toolbar-insert-text-box v-if="!disableItem('textBox')" />
-        </div>
-        <div class="umo-virtual-group">
-          <menus-toolbar-insert-template v-if="!disableItem('template')" />
-          <menus-toolbar-insert-web-page v-if="!disableItem('webPage')" />
         </div>
         <div class="virtual-group is-slot">
           <slot name="toolbar_insert" toolbar-mode="classic" />
@@ -162,9 +140,6 @@
       </template>
       <template v-if="currentMenu === 'page'">
         <div class="umo-virtual-group">
-          <menus-toolbar-page-toggle-toc />
-        </div>
-        <div class="umo-virtual-group">
           <menus-toolbar-page-margin />
           <menus-toolbar-page-size />
           <menus-toolbar-page-orientation />
@@ -191,7 +166,6 @@
         </div>
         <div class="umo-virtual-group">
           <menus-toolbar-export-share v-if="!disableItem('share')" />
-          <menus-toolbar-export-embed v-if="!disableItem('embed')" />
         </div>
         <div class="virtual-group is-slot">
           <slot name="toolbar_export" toolbar-mode="classic" />
