@@ -26,7 +26,7 @@ const templates = [
 ]
 const options = $ref({
   toolbar: {
-    // defaultMode: 'classic',
+    defaultMode: 'classic',
     // menus: ['base'],
     importWord: {
       async onCustomImportMethod() {

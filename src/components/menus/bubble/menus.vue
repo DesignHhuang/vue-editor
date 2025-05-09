@@ -68,17 +68,6 @@
     <menus-toolbar-base-align-center />
     <menus-toolbar-base-align-right />
     <div class="umo-bubble-menu-divider"></div>
-    <template v-if="editor?.isActive('iframe')">
-      <menus-bubble-webpage-clickable />
-      <menus-toolbar-insert-web-page
-        v-if="!disableItem('webPage')"
-        ico="edit"
-        :page-type="editor?.getAttributes('iframe')?.type"
-        :page-url="editor?.getAttributes('iframe')?.src"
-      />
-      <menus-bubble-webpage-open />
-      <div class="umo-bubble-menu-divider"></div>
-    </template>
     <menus-bubble-file-download
       v-if="
         editor?.isActive('file') ||
@@ -94,7 +83,6 @@
   <template v-else-if="editor?.isActive('table')">
     <menus-toolbar-table-cells-align />
     <menus-toolbar-table-cells-background />
-    <!-- <menus-toolbar-table-border-color  /> -->
     <div class="umo-bubble-menu-divider"></div>
     <menus-toolbar-table-add-row-before />
     <menus-toolbar-table-add-row-after />
@@ -121,21 +109,9 @@
     <menus-toolbar-base-align-center />
     <menus-toolbar-base-align-right />
     <div class="umo-bubble-menu-divider"></div>
-    <menus-toolbar-tools-echarts ico="setting" />
     <menus-bubble-node-delete />
   </template>
   <template v-else>
-    <template v-if="options.ai?.assistant?.enabled">
-      <menus-bubble-assistant />
-      <div class="umo-bubble-menu-divider"></div>
-    </template>
-    <menus-toolbar-base-font-size :select="false" />
-    <div
-      v-if="
-        !disableItem('font-size-increase') || !disableItem('font-size-decrease')
-      "
-      class="umo-bubble-menu-divider"
-    ></div>
     <menus-toolbar-base-bold />
     <menus-toolbar-base-italic />
     <menus-toolbar-base-underline />

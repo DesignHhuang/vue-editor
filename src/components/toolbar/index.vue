@@ -165,19 +165,9 @@ watch(
 // 切换编辑器模式
 const editorModeOptions = [
   {
-    label: t('toolbar.ribbon'),
-    value: 'ribbon',
-    prefixIcon: 'toolbar-ribbon',
-  },
-  {
     label: t('toolbar.classic'),
     value: 'classic',
     prefixIcon: 'toolbar-classic',
-  },
-  {
-    label: t('toolbar.hide'),
-    value: 'hideToolbar',
-    prefixIcon: 'hide-toolbar',
   },
 ]
 

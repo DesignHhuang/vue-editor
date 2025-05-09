@@ -27,22 +27,16 @@ import type { UmoEditorOptions } from '@/types'
 import { shortId } from '@/utils/short-id'
 
 import Audio from './audio'
-import Bookmark from './bookmark'
 import BreakMarks from './break-marks'
 import BulletList from './bullet-list'
 import Callout from './callout'
 import CodeBlock from './code-block'
-import Datetime from './datetime'
-import Echarts from './echarts'
 import File from './file'
 import FileHandler from './file-handler'
-import FontSize from './font-size'
 import FormatPainter from './format-painter'
 import hr from './hr'
-import Iframe from './iframe'
 import Image from './image'
 import Indent from './indent'
-import LineHeight from './line-height'
 import Link from './link'
 import Margin from './margin'
 import Mention from './mention'
@@ -56,8 +50,6 @@ import TableCell from './table/cell'
 import TableHeader from './table/header'
 import Tag from './tag'
 import TextAlign from './text-align'
-import TextBox from './text-box'
-import Toc from './toc'
 import typeWriter from './type-writer'
 import Video from './video'
 
@@ -90,9 +82,8 @@ export const getDefaultExtensions = ({
     }),
     FormatPainter,
     FontFamily,
-    FontSize,
     Bold.extend({
-      renderHTML: ({ HTMLAttributes }) => ['b', HTMLAttributes, 0],
+      renderHTML: ({ HTMLAttributes }: any) => ['b', HTMLAttributes, 0],
     }),
     Underline,
     Subscript,
@@ -113,12 +104,6 @@ export const getDefaultExtensions = ({
         class: 'umo-task-list',
       },
     }),
-    LineHeight.configure({
-      types: ['heading', 'paragraph'],
-      defaultLineHeight:
-        dicts?.lineHeights?.find((item: any) => item.default)?.value ??
-        undefined,
-    }),
     Margin,
     SearchReplace.configure({
       searchResultClass: 'umo-search-result',
@@ -128,18 +113,12 @@ export const getDefaultExtensions = ({
     Video,
     Audio,
     File,
-    TextBox,
     CodeBlock,
     hr,
-    Iframe,
     Mathematics,
     Columns,
     Tag,
     Callout,
-    Datetime,
-    Bookmark.configure({
-      class: 'umo-editor-bookmark',
-    }),
 
     // 表格
     Table,
@@ -148,7 +127,6 @@ export const getDefaultExtensions = ({
     TableCell,
 
     // 页面
-    Toc,
     BreakMarks.configure({
       visible: page.showBreakMarks,
     }),
@@ -209,7 +187,6 @@ export const getDefaultExtensions = ({
     Dropcursor.configure({
       color: 'var(--umo-primary-color)',
     }),
-    Echarts,
     typeWriter,
   ]
 

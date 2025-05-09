@@ -71,15 +71,6 @@
           @menu-click="editor?.chain().focus().setHr({ type: 'signle' }).run()"
         />
       </t-dropdown-item>
-      <t-dropdown-item v-if="!disableItem('toc')">
-        <menus-toolbar-insert-toc :huge="false" :tooltip="false" />
-      </t-dropdown-item>
-      <t-dropdown-item v-if="!disableItem('textBox')">
-        <menus-toolbar-insert-text-box :huge="false" :tooltip="false" />
-      </t-dropdown-item>
-      <t-dropdown-item v-if="!disableItem('webPage')">
-        <menus-toolbar-insert-web-page :huge="false" :tooltip="false" />
-      </t-dropdown-item>
       <t-dropdown-item v-if="!disableItem('qrcode')">
         <menus-toolbar-tools-qrcode :huge="false" :tooltip="false" />
       </t-dropdown-item>
@@ -91,19 +82,6 @@
       </t-dropdown-item>
       <t-dropdown-item v-if="!disableItem('seal')">
         <menus-toolbar-tools-seal :huge="false" :tooltip="false" />
-      </t-dropdown-item>
-      <t-dropdown-item v-if="!disableItem('diagrams')">
-        <menus-toolbar-tools-diagrams :huge="false" :tooltip="false" />
-      </t-dropdown-item>
-      <t-dropdown-item v-if="!disableItem('echarts')">
-        <menus-toolbar-tools-echarts
-          :huge="false"
-          :tooltip="false"
-          mode="add"
-        />
-      </t-dropdown-item>
-      <t-dropdown-item v-if="!disableItem('mermaid')">
-        <menus-toolbar-tools-mermaid :huge="false" :tooltip="false" />
       </t-dropdown-item>
       <t-dropdown-item v-if="options.templates.length > 0">
         <menus-button

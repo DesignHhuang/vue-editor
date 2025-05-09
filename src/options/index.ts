@@ -32,7 +32,7 @@ const defaultOptions: UmoEditorOptions = {
   fullscreenZIndex: 10,
   dicts: defaultDicts,
   toolbar: {
-    defaultMode: 'ribbon',
+    defaultMode: 'classic',
     menus: ['base', 'insert', 'table', 'tools', 'page', 'export'],
     disableMenuItems: [],
     importWord: {

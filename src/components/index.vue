@@ -11,7 +11,6 @@
       class="umo-editor-container"
       :class="{
         'toolbar-classic': isRecord($toolbar) && $toolbar.mode === 'classic',
-        'toolbar-ribbon': isRecord($toolbar) && $toolbar.mode === 'ribbon',
         'preview-mode': page.preview?.enabled,
         'laser-pointer': page.preview?.enabled && page.preview?.laserPointer,
         'umo-editor-is-fullscreen': fullscreen,
