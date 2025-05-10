@@ -42,7 +42,7 @@ const buildConfig = {
   lib: {
     entry: `${process.cwd()}/src/components/index.ts`,
     name: pkg.name,
-    fileName: 'umo-editor',
+    fileName: 'vue3-editor',
   },
   outDir: 'dist',
   copyPublicDir: false,
@@ -79,7 +79,7 @@ const cssConfig = {
 }
 
 export default defineConfig({
-  base: '/umo-editor',
+  base: '',
   plugins: [
     tsConfigPaths(),
     tailwindcss(),
