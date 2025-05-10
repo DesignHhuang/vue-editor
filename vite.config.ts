@@ -7,6 +7,7 @@ import VueMacros from 'unplugin-vue-macros/vite'
 import { defineConfig } from 'vite'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import tsConfigPaths from 'vite-tsconfig-paths'
+import tailwindcss from '@tailwindcss/vite'
 
 import pkg from './package.json'
 
@@ -81,6 +82,7 @@ export default defineConfig({
   base: '/umo-editor',
   plugins: [
     tsConfigPaths(),
+    tailwindcss(),
     ReactivityTransform(),
     ...Object.values(vuePlugins),
   ],

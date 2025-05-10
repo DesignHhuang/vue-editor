@@ -8,7 +8,12 @@ import Mentions from './mentions.vue'
 export default (users: UserItem[]) => {
   return {
     items: ({ query }: { query: string }) =>
-      users.filter((user: UserItem) => user.label.includes(query)).slice(0, 10),
+      // get the data of suggestion, and it cloud be async
+      users
+        .filter((user: UserItem) =>
+          user.label.toLowerCase().includes(query.toLowerCase()),
+        )
+        .slice(0, 10),
 
     command: ({ editor, range, props }: any) => {
       editor

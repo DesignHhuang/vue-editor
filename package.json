@@ -58,6 +58,7 @@
     "dependencies": {
         "@eslint/object-schema": "^2.1.4",
         "@imgly/background-removal": "1.5.5",
+        "@tailwindcss/vite": "^4.1.6",
         "@tiptap/core": "2.11.5",
         "@tiptap/extension-bold": "2.11.5",
         "@tiptap/extension-bubble-menu": "2.11.5",
@@ -116,6 +117,7 @@
         "sign-canvas-plus": "^2.0.3",
         "smooth-signature": "^1.0.15",
         "svg64": "^2.0.0",
+        "tailwindcss": "^4.1.6",
         "tippy.js": "^6.3.7",
         "vue-i18n": "^10.0.0",
         "y-prosemirror": "^1.2.15",

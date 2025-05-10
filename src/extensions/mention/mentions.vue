@@ -1,16 +1,29 @@
 <template>
   <div v-if="items.length > 0" class="umo-popup umo-mention-popup">
     <div class="umo-popup__content umo-dropdown">
-      <div class="umo-dropdown__menu" style="padding: 5px; max-height: 320px">
+      <div class="umo-dropdown__menu" style="padding: 0px; max-height: 320px">
         <div>
           <li
             v-for="(item, index) in items"
             :key="index"
-            class="umo-dropdown__item umo-dropdown__item--theme-default umo-dropdown__item"
+            class="umo-dropdown__item umo-dropdown__item--theme-default umo-dropdown__item gap-1"
             :class="{ 'umo-dropdown__item--active': index === selectedIndex }"
             @click="selectItem(index)"
           >
-            {{ item.label }}
+            <img
+              class="rounded-full size-8"
+              src="https://avatars0.githubusercontent.com/u/970828?s=60&v=4"
+            />
+            <div class="flex flex-col justify-between items-baseline">
+              <div class="text-sm leading-[16px] font-normal text-[#171717]">
+                {{ item.label }}
+              </div>
+              <div
+                class="text-[10px] leading-[16px] font-normal text-[#6C6C89]"
+              >
+                UI/UX Designer
+              </div>
+            </div>
           </li>
         </div>
       </div>
